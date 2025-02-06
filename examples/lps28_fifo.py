@@ -3,7 +3,9 @@
 # SPDX-License-Identifier: MIT
 
 import time
+
 import board
+
 import adafruit_lps28
 
 i2c = board.I2C()
@@ -12,7 +14,7 @@ sensor = adafruit_lps28.LPS28(i2c)
 sensor.data_rate = 200
 sensor.averaging = 32
 sensor.fifo_watermark_int = True
-sensor.fifo_mode = 'CONTINUOUS'
+sensor.fifo_mode = "CONTINUOUS"
 sensor.fifo_watermark = 10
 
 while True:
