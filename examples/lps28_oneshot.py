@@ -12,16 +12,11 @@ i2c = board.I2C()
 sensor = adafruit_lps28.LPS28(i2c)
 
 # Data Rate in hz
-# 1, 4, 10, 25, 50, 75, 100 or 200 (default)
-# sensor.data_rate = 200
-
+# 1, 4, 10, 25, 50, 75, 100 or 200
+sensor.data_rate = 4
 # Number of samples to average per measurement
-# 4 (default), 8, 16, 32, 64, 128, 512
-# sensor.averaging = 4
-
-# Full scale measurement mode for pressure
-# (False = 1260 hPa, True = 4060 hPa (default))
-# sensor.full_scale_mode = True
+# 4, 8, 16, 32, 64, 128, 512
+sensor.averaging = 512
 
 # Enable/Disable Interrupts Defaults
 
@@ -31,13 +26,12 @@ sensor = adafruit_lps28.LPS28(i2c)
 # sensor.fifo_overrun_int = False # FIFO overrun interrupt
 # sensor.fifo_watermark_int = False # FIFO watermark interrupt
 
-print("LPS28 Simple Test")
-print("-" * 40)
-
 while True:
+    # Trigger one-shot measurement
+    sensor.trigger_one_shot = True
+
+    # Wait for data ready
     if sensor.data_ready:
         print(f"Pressure: {sensor.pressure:.1f} hPa")
         print(f"Temperature: {sensor.temperature:.1f} °C")
         print("-" * 40)
-
-    time.sleep(0.5)
