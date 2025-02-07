@@ -15,7 +15,7 @@ sensor.data_rate = 200
 sensor.averaging = 32
 
 # FIFO interrupts
-sensor.fifo_watermark_int = True # FIFO watermark interrupt
+sensor.fifo_watermark_int = True  # FIFO watermark interrupt
 # sensor.fifo_full_int = False # FIFO full interrupt
 # sensor.fifo_overrun_int = False # FIFO overrun interrupt
 
