@@ -36,8 +36,8 @@ print("-" * 40)
 
 while True:
     if sensor.data_ready:
-        print(f"Converted Pressure: {sensor.pressure:.1f} hPa")
-        print(f"Converted Temperature: {sensor.temperature:.1f} °C")
+        print(f"Pressure: {sensor.pressure:.1f} hPa")
+        print(f"Temperature: {sensor.temperature:.1f} °C")
         print("-" * 40)
 
     time.sleep(0.5)
