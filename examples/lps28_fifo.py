@@ -13,7 +13,16 @@ sensor = adafruit_lps28.LPS28(i2c)
 
 sensor.data_rate = 200
 sensor.averaging = 32
-sensor.fifo_watermark_int = True
+
+# FIFO interrupts
+sensor.fifo_watermark_int = True # FIFO watermark interrupt
+# sensor.fifo_full_int = False # FIFO full interrupt
+# sensor.fifo_overrun_int = False # FIFO overrun interrupt
+
+# FIFO Modes
+# "BYPASS", "FIFO", "CONTINUOUS",
+# "CONTINUOUS_TO_FIFO", "BYPASS_TO_CONTINUOUS",
+# "CONTINUOUS_TO_BYPASS"
 sensor.fifo_mode = "CONTINUOUS"
 sensor.fifo_watermark = 10
 

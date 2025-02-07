@@ -127,7 +127,7 @@ class LPS28:
     threshold_pressure = UnaryStruct(_THS_P, ">H")
     """Pressure threshold for interrupt generation (16-bit value)"""
     full_scale_mode = RWBits(1, _CTRL_REG2, 6)
-    """Enable full-scale mode (0: 1260 hPa, 1: 4060 hPa)"""
+    """Enable full-scale mode (False = 1260 hPa, True = 4060 hPa)"""
     lpf_odr9 = RWBits(1, _CTRL_REG2, 5)
     """Enable low-pass filter with ODR/9 cutoff"""
     sda_pullup = RWBits(1, _IF_CTRL, 4)
@@ -147,7 +147,7 @@ class LPS28:
     pressure_low = RWBits(1, _INTERRUPT_CFG, 2)
     """Enable low-pressure threshold interrupt"""
     latch_interrupt = RWBits(1, _INTERRUPT_CFG, 3)
-    """Enable latching of interrupt events (1: latched)"""
+    """Enable latching of interrupt events"""
     int_source = ROUnaryStruct(_INT_SOURCE, "B")
     """Interrupt source flags"""
     fifo_unread_samples = ROUnaryStruct(_FIFO_STATUS1, "B")
